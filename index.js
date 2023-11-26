@@ -10,6 +10,8 @@ const path = require('path');
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/posts');
+const conversationsRoutes = require('./routes/conversations');
+const messagesRoutes = require('./routes/messages');
 
 // pentru a fi utilizabil pachetul dotenv trebuie configurat
 dotenv.config();
@@ -74,6 +76,8 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
+app.use('/api/conversations', conversationsRoutes);
+app.use('/api/messages', messagesRoutes);
 
 app.listen(8800, () => {
   console.log('Backend server is running on 8800 port...');

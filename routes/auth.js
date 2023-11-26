@@ -20,8 +20,8 @@ router.post('/login', async (req, res) => {
       if (validPassword === false) {
         res.status(400).json('Credentiale incorecte!');
       } else {
-        const {password, ...other} = user._doc;
-        res.status(200).json(other);
+        // const {password, ...other} = user._doc;
+        res.status(200).json(user);
       }
     }
   } catch (error) {
