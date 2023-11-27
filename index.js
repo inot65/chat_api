@@ -79,6 +79,11 @@ app.use('/api/posts', postRoutes);
 app.use('/api/conversations', conversationsRoutes);
 app.use('/api/messages', messagesRoutes);
 
+
+app.get('/', (req, res) => {
+  res.send('Hey this is my API running 🥳 ');
+});
+
 app.listen(8800, () => {
   console.log('Backend server is running on 8800 port...');
 });
