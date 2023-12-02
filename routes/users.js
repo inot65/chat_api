@@ -114,6 +114,21 @@ router.get('/friends/:userId', async (req, res) => {
   }
 });
 
+// get all users
+router.get('/all', async (req, res) => {
+  
+  try {
+    const users = await User.find({},{password:0});
+    if (!users) {
+      res.status(404).json('Nu gasesc useri !');
+    } else {
+      res.status(200).json({ total: users.length, users } );
+    }
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+});
+
 // follow a user
 router.put('/:id/follow', async (req, res) => {
   if (req.body.userId !== req.params.id) {
